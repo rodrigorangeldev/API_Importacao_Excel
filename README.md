@@ -17,3 +17,4 @@ Sistema para importação de arquivos Excel.
 #### -Atualize a base de dados
 #### -Para utilizar o front-end, é necessário utilizar server/micro server http, para que o seu sistema de rotas funcione adequadamente. (para uma solução rápida indico a extensão Live-Server no Visual Studio Code)
 #### -Deixe a API rodando, execute o frontend
+#### -Há uma pasta com arquivos excel de testes para utilizar 
