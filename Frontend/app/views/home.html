@@ -1,0 +1,96 @@
+
+<div class="container" ng-hide="isLoading" style="margin-top: 20;">
+    <div class="row">
+        <div class="col">
+            <h3>Importar novo arquivo</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form name="importForm" id="importForm" action="" enctype="multipart/form-data" ng-submit="handleSubmit($event)">
+                <input type="file" id="file1" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /> <br /> <br />
+                <button type="submit" class="btn btn-info">Enviar</button>
+            </form>
+            
+        </div>
+        
+    </div>
+</div>
+
+<div class="container" ng-hide="!erros">
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-danger" role="alert" ng-repeat="erro in erros">
+                {{erro}}
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" ng-hide="status != 200">
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-success" role="alert">
+                Arquivo importado com sucesso!
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" ng-hide="status != 404">
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-danger" role="alert">
+                {{ status }} - Não localizado!
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 20;" ng-hide="isLoading">
+    <div class="row">
+        <div class="col">
+            <div class="page-header">
+                <h4>Importações realizadas</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" ng-hide="!isLoading">
+    <div class="row">
+        <div class="col">
+            <h4>Aguarde carregando...</h4>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 20;" ng-hide="isLoading">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <th>Data importação</th>
+                    <th>Número de intens</th>
+                    <th>Menor data de entrega</th>
+                    <th>Total</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="import in imports">
+                        <td>{{import.dataImportacao}}</td>
+                        <td>{{import.numeroItens}}</td>
+                        <td>{{import.menorData}}</td>
+                        <td>{{import.total.toFixed(2)}}</td>
+                        <td><a ng-href="/import/{{import.id}}" class="btn btn-info">Visualizar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+

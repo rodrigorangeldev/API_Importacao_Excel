@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>Importação</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container" ng-hide="status != 404">
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-danger" role="alert">
+                {{ status }} - Algo deu errado!
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 20;" ng-hide="isLoading">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <th>Data Entrega</th>
+                    <th>Nome do Produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor Unitário</th>
+                    <th>Total</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="import in imports">
+                        <td>{{import.dataEntrega}}</td>
+                        <td>{{import.nomeProduto}}</td>
+                        <td>{{import.quantidade}}</td>
+                        <td>{{import.valorUnitario.toFixed(2)}}</td>
+                        <td>{{import.total.toFixed(2)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <a href="/" class="btn btn-info">Voltar</a>
+        </div>
+    </div>
+</div>
